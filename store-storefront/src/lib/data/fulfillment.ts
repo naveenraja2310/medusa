@@ -28,7 +28,12 @@ export const listCartShippingMethods = async (cartId: string) => {
         cache: "force-cache",
       }
     )
-    .then(({ shipping_options }) => shipping_options)
+    .then(
+      ({ shipping_options }) => {
+        console.log("Shipping options retrieved:", shipping_options)
+        return shipping_options
+      }
+    )
     .catch(() => {
       return null
     })
@@ -63,8 +68,8 @@ export const calculatePriceForShippingOption = async (
         next,
       }
     )
-    .then(({ shipping_option }) => shipping_option)
-    .catch((e) => {
-      return null
+    .then(({ shipping_option }) => {
+      console.log("Shipping option calculated:", shipping_option)
+      return shipping_option
     })
 }

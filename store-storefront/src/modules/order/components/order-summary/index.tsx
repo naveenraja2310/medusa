@@ -6,6 +6,7 @@ type OrderSummaryProps = {
 }
 
 const OrderSummary = ({ order }: OrderSummaryProps) => {
+  console.log("Order Summary:", order)
   const getAmount = (amount?: number | null) => {
     if (!amount) {
       return

@@ -27,9 +27,9 @@ export default async function ProductRail({
   }
 
   return (
-    <div className="content-container" style={{ paddingBottom: "10px" }}>
-      <div className="flex justify-between mb-8">
-        <Text className="txt-2xlarge"><b>{collection.title}</b></Text>
+    <div className="content-container pb-4">
+      <div className="flex flex-col small:flex-row justify-between items-start small:items-center mb-2 gap-2">
+        <h3 className="text-xl font-bold text-gray-900">{collection.title}</h3>
         <InteractiveLink href={`/collections/${collection.handle}`}>
           View all
         </InteractiveLink>
