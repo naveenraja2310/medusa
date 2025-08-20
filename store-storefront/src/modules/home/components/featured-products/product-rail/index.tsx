@@ -29,12 +29,12 @@ export default async function ProductRail({
   return (
     <div className="content-container" style={{ paddingBottom: "10px" }}>
       <div className="flex justify-between mb-8">
-        <Text className="txt-xlarge">{collection.title}</Text>
+        <Text className="txt-2xlarge"><b>{collection.title}</b></Text>
         <InteractiveLink href={`/collections/${collection.handle}`}>
           View all
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
+      <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-24 small:gap-y-36">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>
