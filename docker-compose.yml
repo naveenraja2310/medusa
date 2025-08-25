@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  frontend:
+    build: ./store-storefront
+    container_name: nextjs_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - backend
+    env_file:
+      - .env.storefront   # 👈 frontend env
+    volumes:
+      - ./store-storefront:/app
+      - /app/node_modules
+      - ./.env.storefront:/app/.env.local
+
+
+  backend:
+    build: ./store
+    container_name: node_backend
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env.store        # 👈 backend env
+    volumes:
+      - ./store:/app
+      - /app/node_modules
+      - ./.env.store:/app/.env   # 👈 also mount it so `npx medusa` sees it
